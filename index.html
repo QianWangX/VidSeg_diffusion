@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Zero-Shot Video Semantic Segmentation based on Pre-Trained Diffusion Models">
+  <meta name="keywords" content="Diffusion, zero-shot, video segmentation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zero-Shot Video Semantic Segmentation Using Diffusion Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Zero-Shot Video Semantic Segmentation based on Pre-Trained Diffusion Models</h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Qian Wang<sup>1</sup>,</span>
+            <span class="author-block">
+              Abdelrahman Eldesokey<sup>2</sup>,</span>
+            <span class="author-block">
+              Mohit Mendiratta<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Fangneng Zhan<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Adam Kortylewski<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Christian Theobalt<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Peter Wonka<sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>KAUST,</span>
+            <span class="author-block"><sup>2</sup>MPI for Informatics</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <!--
+            <div class="publication-links">
+              
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              -->
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/QianWangX/VidSeg_diffusion"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/50_9mZFBNGzmok.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/183_8Rpdn-7CEGs.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/231_-_w6ZFauJBI.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/2097_HVti7xTm2ow.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/23_XmN5TD3AjMY.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1715_L8nqlt2mrNg.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1096_atkIaj9LDYg.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/101_gx9PZZuwvoI.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/127_-hIVCYO4C90.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/437_-bUZU7-Mbjs.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/958__CDGCdwmlr0.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1184__Ij5JaEIcPc.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1203_gVvsmIrMHT4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1223_xD8VN2r_h2s.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1229_92gCzJBNLcI.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1356_ISS4MOFdZJo.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/1931_LaS9diS8990.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          From left to right, we show the input video from <i>VSPW</i> dataset and the segmentation masks generated by EmerDiff (SD), <b>Ours (SVD)</b> and <b>Ours (SD)</b>, respectively.
+        </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>We introduce the first <b>zero-shot</b> approach for Video Semantic Segmentation (VSS) based on pre-trained diffusion models.
+          </p>
+
+          <p>
+          A growing research direction attempts to employ diffusion models to perform downstream vision tasks by exploiting their deep understanding of image semantics.
+          Yet, the majority of these approaches have focused on image-related tasks like semantic correspondence and segmentation, with less emphasis on video tasks such as VSS.
+          Ideally, diffusion-based image semantic segmentation approaches can be applied to videos in a frame-by-frame manner.
+          However, we find their performance on videos to be subpar due to the absence of any modeling of temporal information inherent in the video data.
+          To this end, we tackle this problem and introduce a framework tailored for VSS based on pre-trained image and video diffusion models.
+          We propose building a scene context model based on the diffusion features, where the model is autoregressively updated to adapt to scene changes.
+          This context model predicts per-frame coarse segmentation maps that are temporally consistent.
+          To refine these maps further, we propose a correspondence-based refinement strategy that aggregates predictions temporally, resulting in more confident predictions.
+          Finally, we introduce a masked modulation approach to upsample the coarse maps to the full resolution at a high quality.
+          Experiments show that our proposed approach outperforms existing zero-shot image semantic segmentation approaches significantly on various VSS benchmarks without any training or fine-tuning.
+          Moreover, it closely rivals supervised Video Object Segmentation (VSS) approaches on the VSPW dataset despite not being explicitly trained for VSS.
+        </p>
+        </div>
+
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/main_workflow_vidseg.png" alt="Main workflow" style="width:100%">
+          <figcaption>Main work flow of our paper. In Stage 1, we initialize a Scene Context Model with the aggregated diffusion features. In Stage 2, we use the context model to predict coarse masks for the remaining frames.
+            In Stage 3, we use the refined coarse masks to modulate the attention layers of the diffusion process. 
+          </figcaption>
+        </div>
+
+
+        <h2 class="title is-3">More results</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/frankfurt_000000_000557_leftImg8bit.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/frankfurt_000000_000557_leftImg8bit.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/frankfurt_000000_005524_leftImg8bit.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/frankfurt_000000_005879_leftImg8bit.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/frankfurt_000000_006570_leftImg8bit.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/frankfurt_000001_005684_leftImg8bit.mp4"
+                    type="video/mp4">
+          </video>
+          <p>From left to right, we show the input video from <i>Cityscapes</i> dataset and the segmentation masks generated by EmerDiff (SD), <b>Ours (SVD)</b> and <b>Ours (SD)</b>, respectively.</p>
+          <br>
+          <br>
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/camvid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <p>From left to right, we show the input video from <i>CamVid</i> dataset and the segmentation masks generated by EmerDiff (SD), <b>Ours (SVD)</b> and <b>Ours (SD)</b>, respectively.</p>
+      </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This website is licensed under a <a rel="license"
+                                                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+              </p>
+              <p>
+                We borrow the template from <a
+                  href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+</body>
+</html>
