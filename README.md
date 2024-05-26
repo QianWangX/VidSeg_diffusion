@@ -1,5 +1,5 @@
 # :video_camera: Implementation of Zero-Shot Video Semantic Segmentation
-
+:rocket: [Project page](https://qianwangx.github.io/VidSeg_diffusion/)
 ![Teaser](./assets/teaser_vidseg.png)
 
 This is the implementation of **Zero-Shot Video Semantic Segmentation based on Pre-Trained Diffusion Models**.<br> 
