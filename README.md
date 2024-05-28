@@ -1,4 +1,5 @@
 # :video_camera: Implementation of Zero-Shot Video Semantic Segmentation
+[![arXiv](https://img.shields.io/badge/arXiv-<2405.16947>-<COLOR>.svg)](https://arxiv.org/abs/2405.16947)
 :rocket: [Project page](https://qianwangx.github.io/VidSeg_diffusion/)
 ![Teaser](./assets/teaser_vidseg.png)
 
