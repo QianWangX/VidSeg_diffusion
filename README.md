@@ -31,7 +31,7 @@ Please download the dataset from official websites: [VSPW](https://github.com/VS
 ### Usage
 SD on VSPW dataset:
 ```bash
-python scripts/sampling/sd_pipeline_vspw.py --is_injected_features --num_masks 20 --feature_folder features_outputs_sd_vspw --is_refine_mask --is_aggre_attn
+python scripts/sampling/sd_pipeline_vspw.py --is_injected_features --num_masks 20 --feature_folder features_outputs_sd_vspw --is_refine_mask --is_aggre_attn --dataset_path YOUR_VSPW_DATASET_PATH --split_file_path YOUR_VSPW_VAL_SPLIT_FILE_PATH 
 ```
 
 SVD on VSPW dataset:
