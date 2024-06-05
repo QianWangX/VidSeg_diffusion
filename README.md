@@ -44,3 +44,15 @@ Here, we enable latent blending by default. You can turn off it by adding `--dis
 TODO:
 - [ ] Inference file for a single video
 - [ ] Inference on Cityscapes and CamVid datasets
+
+## Citations
+```
+@misc{wang2024zeroshot,
+      title={Zero-Shot Video Semantic Segmentation based on Pre-Trained Diffusion Models}, 
+      author={Qian Wang and Abdelrahman Eldesokey and Mohit Mendiratta and Fangneng Zhan and Adam Kortylewski and Christian Theobalt and Peter Wonka},
+      year={2024},
+      eprint={2405.16947},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
