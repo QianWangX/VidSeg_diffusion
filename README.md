@@ -42,7 +42,7 @@ python scripts/sampling/svd_pipeline_vspw.py --is_injected_features --num_masks 
 Here, we enable latent blending by default. You can turn off it by adding `--disable_latent_blending`. We enable correspondence-based refinement by adding `--is_refine_mask` and feature aggregation by `--is_aggre_attn`.
 
 TODO:
-- [ ] Inference file for a single video
+- [x] Inference file for a single video
 - [ ] Inference on Cityscapes and CamVid datasets
 
 ## Citations
