@@ -205,7 +205,7 @@ def sample(
             print("saved video to {}".format(video_path))
     
         return base_count
-
+    
     num_frames = default(num_frames, 14)
     num_steps = default(num_steps, 25)
     output_folder = default(output_folder, "outputs/modulate_video_sample/svd/{}".format(exp_name))
