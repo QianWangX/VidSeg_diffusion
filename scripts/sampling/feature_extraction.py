@@ -317,7 +317,6 @@ def dense_feature_matching_iterative(feature_maps, output_folder=None, input_coo
         all_h_list.append(output_h_list)
         all_w_list.append(output_w_list)
 
-    print("dense feature matching iterative time taken:", time.time() - start_time)
     if overlay_images_folder is not None and output_folder is not None:
         draw_correpondences(all_h_list, all_w_list, overlay_images_folder, output_folder)
             
