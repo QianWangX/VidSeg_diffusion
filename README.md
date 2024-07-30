@@ -39,7 +39,12 @@ SVD on VSPW dataset:
 python scripts/sampling/svd_pipeline_vspw.py --is_injected_features --num_masks 20 --feature_folder features_outputs_svd_vspw --is_refine_mask --is_aggre_attn --dataset_path YOUR_VSPW_DATASET_PATH --split_file_path YOUR_VSPW_VAL_SPLIT_FILE_PATH 
 ```
 
-Here, we enable latent blending by default. You can turn off it by adding `--disable_latent_blending`. We enable correspondence-based refinement by adding `--is_refine_mask` and feature aggregation by `--is_aggre_attn`.
+Single video inference:
+```bash
+python scripts/sampling/svd_single_video_inference.py --input_video_path "input_video/swan"  --exp_name="swan" --is_injected_features --is_refine_mask --is_aggre_attn --num_masks 5
+```
+
+Here, we enable latent blending by default. You can turn off it by adding `--disable_latent_blending`. We enable correspondence-based refinement by adding `--is_refine_mask` and feature aggregation by `--is_aggre_attn`. For single video inference, please change `exp_name` and `input_video_path` accordingly.
 
 TODO:
 - [x] Inference file for a single video
