@@ -146,6 +146,7 @@ class EDMSampler(SingleStepDiffusionSampler):
     def __call__(self, denoiser, x, cond, uc=None, num_steps=None, callback=None, img_callback=None,
                  is_modulate=False, modulate_params=None, uc_list=None, t_start=None, t_end=None, is_latent_blending=False,
                  feature_height=None, feature_width=None, is_smooth_latent=False, model=None):
+        
         x, s_in, sigmas, num_sigmas, cond, uc = self.prepare_sampling_loop(
             x, cond, uc, num_steps
         )
